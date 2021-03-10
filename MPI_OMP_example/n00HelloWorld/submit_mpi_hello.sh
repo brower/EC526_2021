@@ -19,8 +19,8 @@
 # http://www.bu.edu/tech/support/research/system-usage/running-jobs/submitting-jobs/
 
 # Load the correct modules
-module load gcc/5.3.0  # compiler
-module load mpich/3.2  # consistent mpi compile
+module load gcc  # compiler
+module load  mvapich/2.3.3  # consistent mpi compile
 
 # Immediately form fused output/error file, besides the one with the default name.
 exec >  ${SGE_O_WORKDIR}/${JOB_NAME}-${JOB_ID}.scc.out 2>&1

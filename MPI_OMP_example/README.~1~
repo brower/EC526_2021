@@ -1,0 +1,23 @@
+To run  on command line.
+
+module load gcc
+module load  mvapich/2.3.3
+
+mpicc  mpi_hello.c -o hello
+
+mpirun -np  32  ./mpi_hello 
+
+See lots of nice stuff at
+
+https://www.bu.edu/tech/support/research/training-consulting/online-tutorials/mpi/example1-2/
+
+To submit into a queue
+
+qsub submit_mpi_hello.sh
+
+http://www.bu.edu/tech/support/research/system-usage/running-jobs/submitting-jobs/
+
+look at it by
+
+qstat -u brower
+ 
