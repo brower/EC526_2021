@@ -108,17 +108,27 @@ int main(int argc, char** argv)
         error = 0.0;
 
         // Jacobi kernel
-        #pragma acc parallel loop reduction(max:error)
+        #pragma acc parallel loop 
         for (int ix = ix_start; ix < ix_end; ix++)
         {
             for (int iy = iy_start; iy < iy_end; iy++)
             {
                 Anew[iy*nx+ix] = -0.25 * (rhs[iy*nx+ix] - ( A[iy*nx+ix+1] + A[iy*nx+ix-1]
                                                        + A[(iy-1)*nx+ix] + A[(iy+1)*nx+ix] ));
-                error = fmaxr( error, fabsr(Anew[iy*nx+ix]-A[iy*nx+ix]));
+		// move               error = fmaxr( error, fabsr(Anew[iy*nx+ix]-A[iy*nx+ix]));
             }
         }
 
+	#pragma acc parallel loop reduction(max:error)
+	 for (int ix = ix_start; ix < ix_end; ix++)
+        {
+            for (int iy = iy_start; iy < iy_end; iy++)
+            {
+	  error = fmaxr( error, fabsr(Anew[iy*nx+ix]-A[iy*nx+ix]))
+
+	    }
+	}
+	    
         // A <-> Anew
         #pragma acc parallel loop
         for (int iy = iy_start; iy < iy_end; iy++)
