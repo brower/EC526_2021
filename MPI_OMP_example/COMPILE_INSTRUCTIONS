@@ -14,5 +14,7 @@ mpicxx -std=c++11 integrate_2d_mpi_timing.cpp -o integrate_2d_mpi_timing
 The output executables are chosen to match the submit scripts,
 which can just be submitted with
 
-qsub [whatever].sh
+qsub ./[whatever].sh
+
+qstat -u brower
 

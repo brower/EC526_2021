@@ -5,15 +5,27 @@ module load  mvapich/2.3.3
 
 mpicc  mpi_hello.c -o mpi_hello
 
-mpirun -np  64  ./mpi_hello 
+mpirun -np  64  ./mpi_hello
 
-See lots of nice stuff at
+The default here is one node with -np # treads
+To allocate more than one node you need to use
 
-https://www.bu.edu/tech/support/research/training-consulting/online-tutorials/mpi/example1-2/
+ qrsh -pe mpi_12_tasks_per_node 24
+
+which is "-pe mpi_12_tasks_per_node"  with 24 total
+(i.e 24/12 nodes) This take time to get the node so
+let's not do this now. 
+
+See very nice BU SCC tutorial on MPI.
+
+https://www.bu.edu/tech/support/research/training-consulting/online-tutorials/mpi/
+
+See Laplace Solver
+http://www.bu.edu/tech/support/research/training-consulting/online-tutorials/mpi/alliance/solvers/
 
 To submit into a queue
 
-qsub submit_mpi_hello.sh
+qsub ./submit_mpi_hello.sh
 
 http://www.bu.edu/tech/support/research/system-usage/running-jobs/submitting-jobs/
 
