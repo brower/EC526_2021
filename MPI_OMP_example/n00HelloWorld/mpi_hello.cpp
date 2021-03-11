@@ -27,6 +27,7 @@ int  main(int argc, char** argv)
 
    printf("Hello world from rank %d of %d! My name is %s!\n", world_rank, world_size, processor_name);
 
+   
    // Clean up
    MPI_Finalize();
    return 0;

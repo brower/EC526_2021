@@ -20,6 +20,10 @@ See very nice BU SCC tutorial on MPI.
 
 https://www.bu.edu/tech/support/research/training-consulting/online-tutorials/mpi/
 
+Also our example are a bit simpler from
+
+https://mpitutorial.com/tutorials/mpi-hello-world/
+
 See Laplace Solver
 http://www.bu.edu/tech/support/research/training-consulting/online-tutorials/mpi/alliance/solvers/
 
